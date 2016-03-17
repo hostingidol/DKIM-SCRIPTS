@@ -8,19 +8,16 @@ display_usage() {
 	echo -e "\nUsage:\nTo add DKIM for domain: $0 domain.com add\nTo add DKIM for domain: $0 domain.com remove\n" 
 } 
 
-# if less than two arguments supplied, display usage 
 if [  $# -ne 2 ]; then 
 	display_usage
 	exit 1
 fi
 
-# check whether user had supplied -h or --help . If yes display usage 
 if [[ ( $# == "--help") ||  $# == "-h" ]]; then 
 	display_usage
 	exit 1
 fi 
  
-# display usage if the script is not run as root user 
 if [[ $USER != "root" ]]; then 
 	echo "This script must be run as root!" 
 	exit 1
